@@ -6,5 +6,5 @@ amass enum -passive -d $1 > 1.txt
 subfinder -d $1 -all -silent > 2.txt
 cat *.txt | sort -u > subs.txt
 httpx -l subs.txt -o http-subs.txt -t 150 -silent
-nuclei -t cves/ -t default-logins/ -t exposed-panels/ -t takeovers/ -t vulnerabilities/ -t iot/ -l http-subs.txt -es info -etags ssl -rl 250 -bs 50 
-nuclei -t exposures/ -t misconfiguration/ -t mytemplates/ -t miscellaneous/ -l http-subs.txt -es info -etags ssl -rl 250 -bs 50
+nuclei -t ~/nuclei-templates/cves/ -t ~/nuclei-templates/default-logins/ -t ~/nuclei-templates/exposed-panels/ -t ~/nuclei-templates/takeovers/ -t ~/nuclei-templates/vulnerabilities/ -t ~/nuclei-templates/iot/ -l http-subs.txt -es info -etags ssl -rl 250 -bs 50 
+nuclei -t -t ~/nuclei-templates/exposures/ -t ~/nuclei-templates/misconfiguration/ -t ~/nuclei-templates/miscellaneous/ -l http-subs.txt -es info -etags ssl -rl 250 -bs 50
